@@ -20,7 +20,4 @@ else{
     echo "No email found!";
 }
 
-
-
-
 ?>

@@ -1,7 +1,7 @@
 <?php include 'inc/header.php'; ?>
 <?php include 'config/database.php'; ?>
 <?php
-echo $_SESSION['name'];
+//echo $_SESSION['name'];
 
 $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_database);
 
@@ -28,15 +28,32 @@ while($row = mysqli_fetch_assoc($allRows)){
     $data [] = $row;
 }
 ?>
-<?php foreach ($data as $value): ?>
-<li> 
+<div class="container">
+    <div class="list-group">
+        <?php foreach ($data as $value): ?>
+ 
     <?php if(str_contains($value['email'], "gmail")):?>
-    <?php echo $value['email']; ?>
+    <?php continue; ?>
     <?php elseif(!str_contains($value['email'], "gmail")):?>
-    <?php echo "{$value['email']} without gmail"; ?>
+    <?php echo "<a href='#' class='list-group-item list-group-item-action mb-2' aria-current='true'>
+      <div class='d-flex w-100 justify-content-between'>
+        <h5 class='mb-1'>{$value['name']}</h5>
+        <small>{$value['date']}</small>
+      </div>
+      <p class='mb-1'>{$value['message']}</p>
+      <small>{$value['email']}</small>
+    </a>"; ?>
     <?php endif; ?>
-</li>
+
 <?php endforeach; ?>
+
+    </div>
+    
+
+</div>
+
+
+<?php include("inc/footer.php");?>
 
 
 

@@ -78,7 +78,7 @@ WHERE email = '$email'";
 }
 
 ?>
-<script>console.log("Good Night yall!")</script>
+
 
 <!--Form Ends-->
 

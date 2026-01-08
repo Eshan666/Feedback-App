@@ -10,16 +10,16 @@
 
   $result = mysqli_query($conn, $sql);
 
-  print_r(mysqli_num_rows($result));
+  //print_r(mysqli_num_rows($result));
 
   if( mysqli_num_rows($result) > 0 ){
     while($row = mysqli_fetch_assoc($result)){
-      echo $row['name'];
-      echo $row['email'];
-      echo $row['message'];
-      echo $row['date'];
+      // echo $row['name'];
+      // echo $row['email'];
+      // echo $row['message'];
+      // echo $row['date'];
 
-      echo " <a href='#' class='list-group-item list-group-item-action' aria-current='true'>
+      echo " <a href='#' class='list-group-item list-group-item-action mb-2' aria-current='true'>
       <div class='d-flex w-100 justify-content-between'>
         <h5 class='mb-1'>{$row['name']}</h5>
         <small>{$row['date']}</small>
@@ -69,5 +69,9 @@
 </div>
 
 </div>
+
+<script>console.log("Good Night yall!")
+  console.log(document.getElementsByClassName("list-group-item"));
+</script>
 
 <?php include("inc/footer.php");?>
