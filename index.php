@@ -50,8 +50,8 @@ echo '<script>alert("please use a valid name with more than 2 characters!")</scr
   }
 
 
- $checkDuplicateEmail = "SELECT *
- FROM feedbacks
+$checkDuplicateEmail = "SELECT *
+FROM feedbacks
 WHERE email = '$email'";
 
  $emailResult =  mysqli_query($conn, $checkDuplicateEmail);
@@ -60,6 +60,9 @@ WHERE email = '$email'";
    echo "<script>alert('Duplicate Email Found!')</script>";
    die();
  }
+
+ $_SESSION['name'] = $name;
+ $_SESSION['email'] = $email;
 
 
 

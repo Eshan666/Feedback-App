@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +27,10 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="about.php">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="orgSubmissions.php">Organization Submissions</a>
         </li>
         
       </ul>
