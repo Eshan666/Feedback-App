@@ -33,16 +33,49 @@ if( $_SERVER["REQUEST_METHOD"] === "POST" ){
   $email = $_POST['email'];
   $text = $_POST['text'];
 
+  if(strlen($name) < 3){
+//     echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+//   <strong>Holy guacamole!</strong> 
+//   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+// </div>';
+
+echo '<script>alert("please use a valid name with more than 2 characters!")</script>';
+    die();
+  
+  }
+
+  if(empty($email) || empty($text)){
+    echo "<script>alert('password or message cannot be empty!')</script>";
+    die();
+  }
+
+
+ $checkDuplicateEmail = "SELECT *
+ FROM feedbacks
+WHERE email = '$email'";
+
+ $emailResult =  mysqli_query($conn, $checkDuplicateEmail);
+
+ if(mysqli_num_rows($emailResult) > 0){
+   echo "<script>alert('Duplicate Email Found!')</script>";
+   die();
+ }
+
+
+
+
+
   $sql = "INSERT INTO `feedbacks` (`id`, `name`, `email`, `message`, `date`) 
   VALUES (NULL, '$name', '$email', '$text', current_timestamp())";
 
   mysqli_query($conn, $sql);
-  echo "Data Inserted";
+  echo "<script>alert('Data Inserted Successfully')</script>";
 
   
 }
 
 ?>
+<script>console.log("Good Night yall!")</script>
 
 <!--Form Ends-->
 
