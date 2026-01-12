@@ -26,6 +26,12 @@
       </div>
       <p class='mb-1'>{$row['message']}</p>
       <small>{$row['email']}</small>
+      <a href='delete.php?id={$row['id']}' type='submit'  class='btn btn-danger'>
+      Delete
+      </a>
+      <a href='edit.php?id={$row['id']}' type='submit'  class='btn btn-info'>
+      Edit
+      </a>
     </a>
     ";
 
